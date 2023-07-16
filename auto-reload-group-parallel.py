@@ -3,7 +3,7 @@ import time
 import sys
 import logging
 import logging.handlers
-import xmlrpclib
+import xmlrpc
 import datetime
 import ast
 import os
@@ -247,7 +247,7 @@ for i in range(len(rel_group)):
         processes = []
         for processname in processnamegroup:
             #OAM
-            server = xmlrpclib.ServerProxy((listallgroup_urlOAMgroup[i])[j])
+            server = xmlrpc.ServerProxy((listallgroup_urlOAMgroup[i])[j])
             if filesize != 0:
                 #for i in range(count):
                 try:
