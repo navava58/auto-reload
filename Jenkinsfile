@@ -1,9 +1,17 @@
 pipeline{
     agent any
     stages{
-        stage("Clone"){
+        // stage("Clone"){
+        //     steps{
+        //         git "https://github.com/navava58/auto-reload.git"
+        //     }
+        // }
+        stage("Build"){
             steps{
-                git "https://github.com/navava58/auto-reload.git"
+                withDockerRegistry(credentialsId: "docker-hub", url: "https://index.docker.io/v1/") {
+                sh "docker build -t anhnn91:v10."
+                sh "docker push anhnn91:v10."
+                }
             }
         }
     }
